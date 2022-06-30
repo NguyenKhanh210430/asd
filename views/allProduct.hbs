@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>View All Product</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Tiem gac xep</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/create">Create a new Product!</a></li>
+        <li><a href="/viewAll">View Products</a></li>
+      </ul>
+    </div>
+  </nav>
+  <h1>All product</h1>
+  <form action="/search" method="post">
+    Product Name: <input type="text" name="txtName">
+    <br>
+    <input type="submit" name="Search">
+  </form>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Picture</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{category}}</td>
+        <td>{{price}}</td>
+        <td><img src="{{picURL}}" width="150" height="100" /></td>
+        <td>
+          <a href="/delete?id={{_id}}">Delete</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+</body>
+</html>
